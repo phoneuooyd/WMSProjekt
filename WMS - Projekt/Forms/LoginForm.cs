@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 using WMS___Projekt.DataAccess;
+using WMS___Projekt.Utillities;
 
 namespace WMS___Projekt.Forms
 {
@@ -26,13 +27,16 @@ namespace WMS___Projekt.Forms
         public LoginForm()
         {
             InitializeComponent();
-            //InitializeDatabase();
-            //InitializeSqlConnection();
         }
 
-        private void InitializeDatabase()
+        private void NewDatabaseLabel_Click(object sender, EventArgs e)
         {
-            DatabaseInitializer.InitializeDatabase("WMS_Projekt", "localhost\\RESET2", "", "", true);
+            FormManager.ShowForm(new NewDatabaseForm());
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void InitializeSqlConnection()
@@ -66,20 +70,6 @@ namespace WMS___Projekt.Forms
                 loginTextbox.Enabled = true;
                 passwordTextbox.Enabled = true;
             }
-        }
-        private void NewDatabaseLabel_Click(object sender, EventArgs e)
-        {
-            // Close the current form
-            this.Hide();
-
-            // Open the NewDatabaseForm
-            NewDatabaseForm newDatabaseForm = new NewDatabaseForm();
-            newDatabaseForm.Show();
-        }
-
-        private void CancelButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void TextBox2_TextChanged(object sender, EventArgs e)

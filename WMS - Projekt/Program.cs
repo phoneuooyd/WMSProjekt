@@ -1,4 +1,5 @@
 using WMS___Projekt.Forms;
+using WMS___Projekt.Utillities;
 
 namespace WMS___Projekt
 {
@@ -12,16 +13,16 @@ namespace WMS___Projekt
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            // Subscribe to the FormChanged event
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            // Create an instance of the initial form
             LoginForm loginForm = new LoginForm();
-            MainForm mainForm = new MainForm();
-            Application.Run(mainForm);
-            mainForm.Hide();
-            loginForm.ShowDialog();
 
-            
-
-            // Run the login form
-            // Application.Run(new MainForm()); // Example for running the main form directly
+            // Run the application loop
+            Application.Run(loginForm);
         }
     }
 }

@@ -3,8 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\projekt\\NewRepo\\WMSProjekt\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F43EE2B1-4AEC-4FA1-8223-F7B284DDAC0D}|WMS - Projekt\\WMS - Projekt.csproj|c:\\users\\user\\desktop\\projekt\\newrepo\\wmsprojekt\\wms - projekt\\dataaccess\\databaseinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F43EE2B1-4AEC-4FA1-8223-F7B284DDAC0D}|WMS - Projekt\\WMS - Projekt.csproj|solutionrelative:wms - projekt\\dataaccess\\databaseinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F43EE2B1-4AEC-4FA1-8223-F7B284DDAC0D}|WMS - Projekt\\WMS - Projekt.csproj|c:\\users\\user\\desktop\\projekt\\newrepo\\wmsprojekt\\wms - projekt\\models\\carcollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F43EE2B1-4AEC-4FA1-8223-F7B284DDAC0D}|WMS - Projekt\\WMS - Projekt.csproj|solutionrelative:wms - projekt\\models\\carcollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F43EE2B1-4AEC-4FA1-8223-F7B284DDAC0D}|WMS - Projekt\\WMS - Projekt.csproj|c:\\users\\user\\desktop\\projekt\\newrepo\\wmsprojekt\\wms - projekt\\models\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F43EE2B1-4AEC-4FA1-8223-F7B284DDAC0D}|WMS - Projekt\\WMS - Projekt.csproj|solutionrelative:wms - projekt\\models\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F43EE2B1-4AEC-4FA1-8223-F7B284DDAC0D}|WMS - Projekt\\WMS - Projekt.csproj|c:\\users\\user\\desktop\\projekt\\newrepo\\wmsprojekt\\wms - projekt\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F43EE2B1-4AEC-4FA1-8223-F7B284DDAC0D}|WMS - Projekt\\WMS - Projekt.csproj|solutionrelative:wms - projekt\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F43EE2B1-4AEC-4FA1-8223-F7B284DDAC0D}|WMS - Projekt\\WMS - Projekt.csproj|c:\\users\\user\\desktop\\projekt\\newrepo\\wmsprojekt\\wms - projekt\\forms\\newdatabaseform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F43EE2B1-4AEC-4FA1-8223-F7B284DDAC0D}|WMS - Projekt\\WMS - Projekt.csproj|solutionrelative:wms - projekt\\forms\\newdatabaseform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F43EE2B1-4AEC-4FA1-8223-F7B284DDAC0D}|WMS - Projekt\\WMS - Projekt.csproj|c:\\users\\user\\desktop\\projekt\\newrepo\\wmsprojekt\\wms - projekt\\utillities\\formmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F43EE2B1-4AEC-4FA1-8223-F7B284DDAC0D}|WMS - Projekt\\WMS - Projekt.csproj|solutionrelative:wms - projekt\\utillities\\formmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F43EE2B1-4AEC-4FA1-8223-F7B284DDAC0D}|WMS - Projekt\\WMS - Projekt.csproj|c:\\users\\user\\desktop\\projekt\\newrepo\\wmsprojekt\\wms - projekt\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F43EE2B1-4AEC-4FA1-8223-F7B284DDAC0D}|WMS - Projekt\\WMS - Projekt.csproj|solutionrelative:wms - projekt\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F43EE2B1-4AEC-4FA1-8223-F7B284DDAC0D}|WMS - Projekt\\WMS - Projekt.csproj|c:\\users\\user\\desktop\\projekt\\newrepo\\wmsprojekt\\wms - projekt\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F43EE2B1-4AEC-4FA1-8223-F7B284DDAC0D}|WMS - Projekt\\WMS - Projekt.csproj|solutionrelative:wms - projekt\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,12 +47,103 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "DatabaseInitializer.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\projekt\\NewRepo\\WMSProjekt\\WMS - Projekt\\DataAccess\\DatabaseInitializer.cs",
+              "RelativeDocumentMoniker": "WMS - Projekt\\DataAccess\\DatabaseInitializer.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\projekt\\NewRepo\\WMSProjekt\\WMS - Projekt\\DataAccess\\DatabaseInitializer.cs",
+              "RelativeToolTip": "WMS - Projekt\\DataAccess\\DatabaseInitializer.cs",
+              "ViewState": "AQIAADUAAAAAAAAAAAAuwCkAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-01T20:24:50.391Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CarCollection.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\projekt\\NewRepo\\WMSProjekt\\WMS - Projekt\\Models\\CarCollection.cs",
+              "RelativeDocumentMoniker": "WMS - Projekt\\Models\\CarCollection.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\projekt\\NewRepo\\WMSProjekt\\WMS - Projekt\\Models\\CarCollection.cs",
+              "RelativeToolTip": "WMS - Projekt\\Models\\CarCollection.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAUwA8AAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-01T20:23:54.61Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Car.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\projekt\\NewRepo\\WMSProjekt\\WMS - Projekt\\Models\\Car.cs",
+              "RelativeDocumentMoniker": "WMS - Projekt\\Models\\Car.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\projekt\\NewRepo\\WMSProjekt\\WMS - Projekt\\Models\\Car.cs",
+              "RelativeToolTip": "WMS - Projekt\\Models\\Car.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-01T20:21:26.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\projekt\\NewRepo\\WMSProjekt\\WMS - Projekt\\Program.cs",
+              "RelativeDocumentMoniker": "WMS - Projekt\\Program.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\projekt\\NewRepo\\WMSProjekt\\WMS - Projekt\\Program.cs",
+              "RelativeToolTip": "WMS - Projekt\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-01T20:04:32.384Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LoginForm.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\projekt\\NewRepo\\WMSProjekt\\WMS - Projekt\\Forms\\LoginForm.cs",
+              "RelativeDocumentMoniker": "WMS - Projekt\\Forms\\LoginForm.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\projekt\\NewRepo\\WMSProjekt\\WMS - Projekt\\Forms\\LoginForm.cs",
+              "RelativeToolTip": "WMS - Projekt\\Forms\\LoginForm.cs",
+              "ViewState": "AQIAABcAAAAAAAAAAAAIwEkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-01T20:01:12.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\projekt\\NewRepo\\WMSProjekt\\WMS - Projekt\\Forms\\MainForm.cs",
+              "RelativeDocumentMoniker": "WMS - Projekt\\Forms\\MainForm.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\projekt\\NewRepo\\WMSProjekt\\WMS - Projekt\\Forms\\MainForm.cs",
+              "RelativeToolTip": "WMS - Projekt\\Forms\\MainForm.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-01T20:00:24.426Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "NewDatabaseForm.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\projekt\\NewRepo\\WMSProjekt\\WMS - Projekt\\Forms\\NewDatabaseForm.cs",
+              "RelativeDocumentMoniker": "WMS - Projekt\\Forms\\NewDatabaseForm.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\projekt\\NewRepo\\WMSProjekt\\WMS - Projekt\\Forms\\NewDatabaseForm.cs",
+              "RelativeToolTip": "WMS - Projekt\\Forms\\NewDatabaseForm.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAACoAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-01T20:00:21.165Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "FormManager.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\projekt\\NewRepo\\WMSProjekt\\WMS - Projekt\\Utillities\\FormManager.cs",
               "RelativeDocumentMoniker": "WMS - Projekt\\Utillities\\FormManager.cs",
               "ToolTip": "C:\\Users\\user\\Desktop\\projekt\\NewRepo\\WMSProjekt\\WMS - Projekt\\Utillities\\FormManager.cs",
               "RelativeToolTip": "WMS - Projekt\\Utillities\\FormManager.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-01T19:52:39.755Z",
               "EditorCaption": ""

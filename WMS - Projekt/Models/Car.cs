@@ -8,9 +8,12 @@ namespace WMS___Projekt.Models
 {
     public class Car
     {
-        public Guid CarID { get; set; }
-        public string Model { get; set; }
-        public string Manufacturer { get; set; }
+        public int CarID { get; set; }
+        public string? Model { get; set; }
+        public string? Manufacturer { get; set; }
         public int Year { get; set; }
+        public decimal Price { get; set; } = 0;
+        public string? Color { get; set; }   = string.Empty;
+
     }
 }

@@ -6,8 +6,21 @@ using System.Threading.Tasks;
 
 namespace WMS___Projekt.Utillities
 {
-    internal class FormManager
-    {
 
+    public static class FormManager
+    {
+        
+
+        private static List<Form> openForms = new List<Form>();
+
+        public static void ShowForm(Form form)
+        {
+            // Add the form to the list of open forms
+            openForms.Add(form);
+
+            // Show the form
+            form.FormClosed += (s, e) => openForms.Remove(form); // Remove the form from the list when it's closed
+            form.Show();
+        }
     }
 }

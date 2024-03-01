@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 // DataAccess/DatabaseInitializer.cs
 using System;
 using System.Data.SqlClient;
+using WMS___Projekt.Models;
+using System.Reflection;
 
 namespace WMS___Projekt.DataAccess
 {
@@ -16,6 +18,7 @@ namespace WMS___Projekt.DataAccess
         {
             string createDatabaseQuery = $"CREATE DATABASE {databaseName}";
             string connectionString = string.Empty;
+            
             SqlConnection connection = new SqlConnection();
 
             if (isWindowsAuthentication)
@@ -36,6 +39,36 @@ namespace WMS___Projekt.DataAccess
                     createDatabaseCommand.ExecuteNonQuery();
                     Console.WriteLine($"Database '{databaseName}' created successfully.");
                     MessageBox.Show($"Database '{databaseName}' created successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    connection.ChangeDatabase(databaseName);
+
+
+                    string createTableQuery = @"CREATE TABLE StoredCars (
+                                                CarId INT PRIMARY KEY IDENTITY(1,1),
+                                                Model NVARCHAR(100),
+                                                Manufacturer NVARCHAR(100),
+                                                Year INT,
+                                                Price DECIMAL(18, 2),
+                                                Amount INT,
+                                                WarehouseSection NVARCHAR(100)
+                                            )";
+
+                    SqlCommand createTableCommand = new SqlCommand(createTableQuery, connection);
+                    createTableCommand.ExecuteNonQuery();
+
+                    Console.WriteLine("Table 'StoredCars' created successfully.");
+                    MessageBox.Show("Table 'StoredCars' created successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    createTableQuery = @"CREATE TABLE Cars (
+                                        CarId INT PRIMARY KEY IDENTITY(1,1),
+                                        Model NVARCHAR(100),
+                                        Manufacturer NVARCHAR(100),
+                                        Year INT,
+                                        Price DECIMAL(18, 2)
+                                        )";
+
+                    createTableCommand = new SqlCommand(createTableQuery, connection);
+                    createTableCommand.ExecuteNonQuery();
+
                 }
                 catch (Exception ex)
                 {
