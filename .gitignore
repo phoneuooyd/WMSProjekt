@@ -15,3 +15,20 @@ WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.csproj.FileListAbsolute.txt
 *.v2
 *.bin
 *.json
+*.pdb
+*.dll
+*.exe
+*.json
+.vs/WMS - Projekt/v17/.suo
+*.cache
+*.cache
+*.dll
+*.pdb
+*.json
+WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.AssemblyInfo.cs
+WMS - Projekt/obj/Debug/net8.0-windows/apphost.exe
+WMS - Projekt/obj/Debug/net8.0-windows/ref/WMS - Projekt.dll
+WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.AssemblyInfo.cs
+WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.AssemblyInfoInputs.cache
+WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.csproj.GenerateResource.cache
+WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.sourcelink.json

@@ -33,12 +33,13 @@ namespace WMS___Projekt.Forms
             panel1 = new Panel();
             button5 = new Button();
             button4 = new Button();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
+            delButton = new Button();
+            modButton = new Button();
+            addButton = new Button();
             panel2 = new Panel();
             panelDatagrid = new Panel();
             dataGridView1 = new DataGridView();
+            loadDatagrid = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panelDatagrid.SuspendLayout();
@@ -47,6 +48,7 @@ namespace WMS___Projekt.Forms
             // 
             // panel1
             // 
+            panel1.Controls.Add(loadDatagrid);
             panel1.Controls.Add(button5);
             panel1.Controls.Add(button4);
             panel1.Dock = DockStyle.Left;
@@ -73,40 +75,41 @@ namespace WMS___Projekt.Forms
             button4.TabIndex = 3;
             button4.Text = "New database";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
-            // button3
+            // delButton
             // 
-            button3.Location = new Point(212, 12);
-            button3.Name = "button3";
-            button3.Size = new Size(94, 55);
-            button3.TabIndex = 2;
-            button3.Text = "Delete";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            delButton.Location = new Point(212, 12);
+            delButton.Name = "delButton";
+            delButton.Size = new Size(94, 55);
+            delButton.TabIndex = 2;
+            delButton.Text = "Delete";
+            delButton.UseVisualStyleBackColor = true;
+            delButton.Click += button3_Click;
             // 
-            // button2
+            // modButton
             // 
-            button2.Location = new Point(112, 12);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 55);
-            button2.TabIndex = 1;
-            button2.Text = "Modify";
-            button2.UseVisualStyleBackColor = true;
+            modButton.Location = new Point(112, 12);
+            modButton.Name = "modButton";
+            modButton.Size = new Size(94, 55);
+            modButton.TabIndex = 1;
+            modButton.Text = "Modify";
+            modButton.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // addButton
             // 
-            button1.Location = new Point(12, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 55);
-            button1.TabIndex = 0;
-            button1.Text = "Add";
-            button1.UseVisualStyleBackColor = true;
+            addButton.Location = new Point(12, 12);
+            addButton.Name = "addButton";
+            addButton.Size = new Size(94, 55);
+            addButton.TabIndex = 0;
+            addButton.Text = "Add";
+            addButton.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
-            panel2.Controls.Add(button1);
-            panel2.Controls.Add(button2);
-            panel2.Controls.Add(button3);
+            panel2.Controls.Add(addButton);
+            panel2.Controls.Add(modButton);
+            panel2.Controls.Add(delButton);
             panel2.Location = new Point(153, 0);
             panel2.Name = "panel2";
             panel2.Size = new Size(770, 84);
@@ -127,6 +130,16 @@ namespace WMS___Projekt.Forms
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(745, 333);
             dataGridView1.TabIndex = 0;
+            // 
+            // loadDatagrid
+            // 
+            loadDatagrid.Location = new Point(8, 110);
+            loadDatagrid.Name = "loadDatagrid";
+            loadDatagrid.Size = new Size(139, 44);
+            loadDatagrid.TabIndex = 5;
+            loadDatagrid.Text = "Load all data";
+            loadDatagrid.UseVisualStyleBackColor = true;
+            loadDatagrid.Click += loadDatagrid_Click;
             // 
             // MainForm
             // 
@@ -149,13 +162,14 @@ namespace WMS___Projekt.Forms
         #endregion
 
         private Panel panel1;
-        private Button button3;
-        private Button button2;
-        private Button button1;
+        private Button delButton;
+        private Button modButton;
+        private Button addButton;
         private Button button5;
         private Button button4;
         private Panel panel2;
         private Panel panelDatagrid;
         private DataGridView dataGridView1;
+        private Button loadDatagrid;
     }
 }
