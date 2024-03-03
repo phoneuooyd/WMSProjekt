@@ -9,25 +9,40 @@ using System;
 using System.Data.SqlClient;
 using WMS___Projekt.Models;
 using System.Reflection;
+using Microsoft.Identity.Client;
+using System.Security.Authentication;
 
 namespace WMS___Projekt.DataAccess
 {
     public class DatabaseInitializer
     {
-        public static void InitializeDatabase(string serverName, string databaseName, string login, string password, bool isWindowsAuthentication)
+        public static string? CurrentDatabaseName;
+        public static string? CurrentConnectionString;
+        public static string ReturnCurrentDatabaseName()
+        {
+            return CurrentDatabaseName;
+        }
+        public static string ReturnConnectionString()
+        {
+            return CurrentConnectionString;
+        }
+        public static bool InitializeDatabase(string serverName, string databaseName, string login, string password, bool isWindowsAuthentication)
         {
             string createDatabaseQuery = $"CREATE DATABASE {databaseName}";
             string connectionString = string.Empty;
+            CurrentDatabaseName = databaseName;
             
             SqlConnection connection = new SqlConnection();
 
             if (isWindowsAuthentication)
             {
                 connectionString = "Data Source=" + serverName + ";Initial Catalog=master;Integrated Security=True";
+                CurrentConnectionString = connectionString;
             }
             else
             {
                 connectionString = "Data Source=" + serverName + ";Initial Catalog=master;User ID=" + login + ";Password=" + password;
+                CurrentConnectionString = connectionString;
             }
             using (connection)
             {
@@ -42,23 +57,7 @@ namespace WMS___Projekt.DataAccess
                     connection.ChangeDatabase(databaseName);
 
 
-                    string createTableQuery = @"CREATE TABLE StoredCars (
-                                                CarId INT PRIMARY KEY IDENTITY(1,1),
-                                                Model NVARCHAR(100),
-                                                Manufacturer NVARCHAR(100),
-                                                Year INT,
-                                                Price DECIMAL(18, 2),
-                                                Amount INT,
-                                                WarehouseSection NVARCHAR(100)
-                                            )";
-
-                    SqlCommand createTableCommand = new SqlCommand(createTableQuery, connection);
-                    createTableCommand.ExecuteNonQuery();
-
-                    Console.WriteLine("Table 'StoredCars' created successfully.");
-                    MessageBox.Show("Table 'StoredCars' created successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    createTableQuery = @"CREATE TABLE Cars (
+                    string createTableQuery = @"CREATE TABLE Cars (
                                         CarId INT PRIMARY KEY IDENTITY(1,1),
                                         Model NVARCHAR(100),
                                         Manufacturer NVARCHAR(100),
@@ -66,48 +65,63 @@ namespace WMS___Projekt.DataAccess
                                         Price DECIMAL(18, 2)
                                         )";
 
-                    createTableCommand = new SqlCommand(createTableQuery, connection);
+                    SqlCommand createTableCommand = new SqlCommand(createTableQuery, connection);
                     createTableCommand.ExecuteNonQuery();
 
+                    Console.WriteLine("Table 'Cars' created successfully.");
+                    MessageBox.Show("Table 'StoredCars' created successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                    return true;
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Error creating database '{databaseName}': {ex.Message}");
                     MessageBox.Show($"Error creating database '{databaseName}': {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    return false;
                 }
             }
         }
 
-        public static void ConnectToDatabase(string databaseName, string login, string password, bool isWindowsAuthentication)
+        public static bool ConnectToDatabase(string serverName, string databaseName, string login, string password, bool isWindowsAuthentication)
         {
             SqlConnection connection = new SqlConnection();
             string connectionString = string.Empty;
+            CurrentDatabaseName = databaseName;
             try
             {
                 if (isWindowsAuthentication)
                 {
-                    connectionString = $"Data Source={databaseName};Initial Catalog=AdventureWorks;Integrated Security=True";
+                    connectionString = $"Data Source={serverName};Initial Catalog={databaseName};Integrated Security=True";
                     connection.ConnectionString = connectionString;
                     connection.Open();
+                    CurrentConnectionString = connectionString;
                     MessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    return true;
                 }
                 else
                 {
-                    connectionString = $"Data Source={databaseName};Initial Catalog=AdventureWorks;User ID={login};Password={password}";
+                    connectionString = $"Data Source={serverName};Initial Catalog={databaseName};User ID={login};Password={password}";
                     connection.ConnectionString = connectionString;
                     connection.Open();
+                    CurrentConnectionString = connectionString;
                     MessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    return true;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Login Failed: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return false;
             }
-            finally
-            {
-                connection.Close();
-            }
+            
         }
+
+
     }
+    
 }
 

@@ -11,3 +11,7 @@ WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.genruntimeconfig.cache
 *.cache
 WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.csproj.FileListAbsolute.txt
 *.cache
+*.vsidx
+*.v2
+*.bin
+*.json

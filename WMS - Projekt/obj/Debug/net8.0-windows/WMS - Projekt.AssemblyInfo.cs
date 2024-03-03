@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WMS - Projekt")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bd948d09e9cf0aae4f7e6e2bf64f976a5650c945")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+16a8e9d5834f0a66d80faa74692327087bcabe54")]
 [assembly: System.Reflection.AssemblyProductAttribute("WMS - Projekt")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WMS - Projekt")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

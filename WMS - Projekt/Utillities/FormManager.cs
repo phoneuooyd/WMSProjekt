@@ -10,7 +10,6 @@ namespace WMS___Projekt.Utillities
     public static class FormManager
     {
         
-
         private static List<Form> openForms = new List<Form>();
 
         public static void ShowForm(Form form)

@@ -155,6 +155,7 @@
             Controls.Add(serverNameLabel);
             Controls.Add(newDatabaseTextbox);
             Controls.Add(serverNameTextBox);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "NewDatabaseForm";
             Text = "Create new database";
             ResumeLayout(false);

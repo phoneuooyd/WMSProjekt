@@ -177,6 +177,7 @@ namespace WMS___Projekt.Forms
             Controls.Add(loginButton);
             Controls.Add(label2);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "LoginForm";
             Load += LoginForm_Load;
             ResumeLayout(false);

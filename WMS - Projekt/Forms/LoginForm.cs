@@ -39,11 +39,6 @@ namespace WMS___Projekt.Forms
             this.Close();
         }
 
-        private void InitializeSqlConnection()
-        {
-            string connectionString = "Data Source=RESET2;Integrated Security=True;Initial Catalog=YourDatabaseName";
-            connection = new SqlConnection(connectionString);
-        }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
@@ -53,7 +48,16 @@ namespace WMS___Projekt.Forms
             string databaseName = databaseNameTextbox.Text;
             bool isWindowsAuthentication = isWindowsAuthenticationCheckbox.Checked;
 
-            DatabaseInitializer.ConnectToDatabase(databaseName, login, password, isWindowsAuthentication);
+            if(DatabaseInitializer.ConnectToDatabase(serverName, databaseName, login, password, isWindowsAuthentication))
+            {
+                FormManager.ShowForm(new MainForm());
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Connection failed. Please check your input and try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void IsWindowsAuthenticationCheckbox_CheckedChanged(object sender, EventArgs e)
