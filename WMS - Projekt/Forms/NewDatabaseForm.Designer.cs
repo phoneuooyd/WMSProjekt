@@ -95,6 +95,7 @@
             cancelButton.TabIndex = 5;
             cancelButton.Text = "Cancel";
             cancelButton.UseVisualStyleBackColor = true;
+            cancelButton.Click += cancelButton_Click_1;
             // 
             // serverLoginTextbox
             // 

@@ -10,24 +10,27 @@ namespace WMS___Projekt.DataAccess
 {
     internal class DataQueryService
     {
-
-        public DataQueryService() { }
-        public static DataTable GetAllData(SqlConnection connection, string databaseName)
+        private SqlConnection connection;
+        private DataTable dataTable;
+        public DataTable GetAllData(SqlConnection connection, DataTable dataTable)
         {
-            DataTable dataTable = new DataTable();
+            this.connection = connection;
+            this.dataTable = dataTable;
 
             try
             {
                 connection.Open(); // Open the connection
-                string query = $"SELECT * FROM [{databaseName}].[dbo].[Car]"; // Replace TableName with your table name
+                string query = $"SELECT * FROM Car"; // Replace TableName with your table name
                 SqlCommand command = new SqlCommand(query, connection);
                 SqlDataReader reader = command.ExecuteReader();
                 dataTable.Load(reader);
                 Console.WriteLine("Data retrieved successfully.");
+                Console.WriteLine(dataTable);
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error retrieving data: {ex.Message}");
+                Console.WriteLine(ex.InnerException);
                 // Handle the exception as needed
             }
             finally

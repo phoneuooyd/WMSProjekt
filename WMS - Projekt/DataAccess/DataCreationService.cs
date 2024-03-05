@@ -9,10 +9,10 @@ namespace WMS___Projekt.DataAccess
 {
     internal class DataCreationService
     {
-        public static void CreateData(string carModel, string carManufacturer, int carProductionYear, decimal carPrice, SqlConnection connection)
+        public static void CreateData(string carModel, string carManufacturer, int carProductionYear, decimal carPrice,string color, SqlConnection connection)
         {
             string createTableQuery = @$"INSERT INTO Cars (Model, Manufacturer, Year, Price) 
-                                                  VALUES ('{carModel}', '{carManufacturer}', {carProductionYear}, {carPrice});";
+                                         VALUES ('{carModel}', '{carManufacturer}', {carProductionYear}, {carPrice}, {color});";
             SqlCommand createTableCommand = new SqlCommand(createTableQuery, connection);
             createTableCommand.ExecuteNonQuery();
             Console.WriteLine($"The {carManufacturer} {carModel} created successfully.");
@@ -26,9 +26,9 @@ namespace WMS___Projekt.DataAccess
             Console.WriteLine($"Object deleted successfully.");
         }
 
-        public static void UpdateData(int carId, string carModel, string carManufacturer, int carProductionYear, decimal carPrice, SqlConnection connection)
+        public static void UpdateData(int carId, string carModel, string carManufacturer, int carProductionYear, decimal carPrice, string color, SqlConnection connection)
         {
-            string createTableQuery = @$"UPDATE Cars SET Model = '{carModel}', Manufacturer = '{carManufacturer}', Year = {carProductionYear}, Price = {carPrice} WHERE CarId = {carId};";
+            string createTableQuery = @$"UPDATE Cars SET Model = '{carModel}', Manufacturer = '{carManufacturer}', Year = {carProductionYear}, Price = {carPrice}, Color = {color} WHERE CarId = {carId};";
             SqlCommand createTableCommand = new SqlCommand(createTableQuery, connection);
             createTableCommand.ExecuteNonQuery();
             Console.WriteLine("Object modified successfully");

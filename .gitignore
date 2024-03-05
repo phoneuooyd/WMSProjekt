@@ -32,3 +32,8 @@ WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.AssemblyInfo.cs
 WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.AssemblyInfoInputs.cache
 WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.csproj.GenerateResource.cache
 WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.sourcelink.json
+*.cache
+*.v2
+*.v2
+*.bin
+*.bin

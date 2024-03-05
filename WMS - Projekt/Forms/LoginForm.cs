@@ -32,6 +32,7 @@ namespace WMS___Projekt.Forms
         private void NewDatabaseLabel_Click(object sender, EventArgs e)
         {
             FormManager.ShowForm(new NewDatabaseForm());
+            this.Hide();
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -46,12 +47,11 @@ namespace WMS___Projekt.Forms
             string password = passwordTextbox.Text;
             string serverName = serverNameTextbox.Text;
             string databaseName = databaseNameTextbox.Text;
-            SqlConnection connection = new SqlConnection(DatabaseInitializer.ReturnConnectionString());
             bool isWindowsAuthentication = isWindowsAuthenticationCheckbox.Checked;
 
             if(DatabaseInitializer.ConnectToDatabase(serverName, databaseName, login, password, isWindowsAuthentication))
             {
-                FormManager.ShowForm(new MainForm(databaseName, connection));
+                FormManager.ShowForm(new MainForm());
                 this.Hide();
             }
             else

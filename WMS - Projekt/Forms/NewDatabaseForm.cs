@@ -30,7 +30,7 @@ namespace WMS___Projekt.Forms
             string password = serverPasswordTextbox.Text;
             bool isWindowsAuthentication = isWindowsAuthenticationCheckbox.Checked;
 
-           if(DatabaseInitializer.InitializeDatabase(serverName, databaseName, login, password, isWindowsAuthentication))
+            if (DatabaseInitializer.InitializeDatabase(serverName, databaseName, login, password, isWindowsAuthentication))
             {
                 MessageBox.Show("Database created successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
@@ -52,10 +52,6 @@ namespace WMS___Projekt.Forms
                 serverLoginTextbox.Enabled = true;
                 serverPasswordTextbox.Enabled = true;
             }
-        }   
-        private void CancelButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
         private void Label1_Click(object sender, EventArgs e)
         {
@@ -70,6 +66,11 @@ namespace WMS___Projekt.Forms
         private void Label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cancelButton_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
