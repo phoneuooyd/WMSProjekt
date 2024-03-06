@@ -80,13 +80,11 @@ namespace WMS___Projekt.Forms
         private void button4_Click(object sender, EventArgs e)
         {
             FormManager.ShowForm(new NewDatabaseForm());
-            this.Close();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             FormManager.ShowForm(new LoginForm());
-            this.Close();
         }
 
         private void OnFormClose(object sender, FormClosedEventArgs e)

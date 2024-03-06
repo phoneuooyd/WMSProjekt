@@ -23,7 +23,7 @@ namespace WMS___Projekt.Utillities
 
         public static void CloseAllForms()
         {
-            foreach (Form form in Application.OpenForms)
+            foreach (Form form in openForms)
             {
                 form.Dispose();
             }

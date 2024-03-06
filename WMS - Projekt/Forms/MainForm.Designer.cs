@@ -63,7 +63,7 @@ namespace WMS___Projekt.Forms
             loadDatagrid.Name = "loadDatagrid";
             loadDatagrid.Size = new Size(139, 44);
             loadDatagrid.TabIndex = 5;
-            loadDatagrid.Text = "Load dummy data";
+            loadDatagrid.Text = "Load data";
             loadDatagrid.UseVisualStyleBackColor = true;
             loadDatagrid.Click += loadDatagrid_Click;
             // 

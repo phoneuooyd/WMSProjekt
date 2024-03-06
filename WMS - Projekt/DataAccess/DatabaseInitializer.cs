@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// DataAccess/DatabaseInitializer.cs
 using System;
 using System.Data.SqlClient;
 using WMS___Projekt.Models;
@@ -125,7 +124,6 @@ namespace WMS___Projekt.DataAccess
                 }
             }
         }
-
         public static bool ConnectToDatabase(string serverName, string databaseName, string login, string password, bool isWindowsAuthentication)
         {
             SqlConnection connection = new SqlConnection();

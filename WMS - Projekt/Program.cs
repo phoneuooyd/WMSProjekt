@@ -15,6 +15,8 @@ namespace WMS___Projekt
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            Console.WriteLine("Projekt pokazowy, wykonany przez Przemyslawa Przybyszewskiego");
+
             // Create an instance of the initial form
             LoginForm loginForm = new LoginForm();
             FormManager.ShowForm(loginForm);
@@ -23,7 +25,6 @@ namespace WMS___Projekt
             {
                 Application.Run();
             }
-            Application.Exit();
         }
     }
 }

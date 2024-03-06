@@ -31,6 +31,7 @@ namespace WMS___Projekt.Forms
 
         private void NewDatabaseLabel_Click(object sender, EventArgs e)
         {
+            FormManager.CloseAllForms();
             FormManager.ShowForm(new NewDatabaseForm());
             this.Close();
         }
@@ -52,6 +53,8 @@ namespace WMS___Projekt.Forms
             if(DatabaseInitializer.ConnectToDatabase(serverName, databaseName, login, password, isWindowsAuthentication))
             {
                 this.Close();
+                FormManager.CloseAllForms();
+                FormManager.ShowForm(new MainForm());
             }
             else
             {
@@ -97,13 +100,6 @@ namespace WMS___Projekt.Forms
         private void OnFormClose(object sender, FormClosedEventArgs e)
         {
             FormManager.CloseAllForms();
-            Console.WriteLine("onFormCLose in LoginForm.cs");
-            this.Close();
-        }
-        private void OnFormHide(object sender, FormClosedEventArgs e)
-        {
-            FormManager.CloseAllForms();
-            Console.WriteLine("onFormHide in LoginForm.cs");
             this.Close();
         }
     }
