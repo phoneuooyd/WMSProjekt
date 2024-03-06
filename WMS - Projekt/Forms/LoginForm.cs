@@ -32,7 +32,7 @@ namespace WMS___Projekt.Forms
         private void NewDatabaseLabel_Click(object sender, EventArgs e)
         {
             FormManager.ShowForm(new NewDatabaseForm());
-            this.Hide();
+            this.Close();
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -51,27 +51,24 @@ namespace WMS___Projekt.Forms
 
             if(DatabaseInitializer.ConnectToDatabase(serverName, databaseName, login, password, isWindowsAuthentication))
             {
-                FormManager.ShowForm(new MainForm());
-                this.Hide();
+                this.Close();
             }
             else
             {
                 MessageBox.Show("Connection failed. Please check your input and try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+            this.Close();
         }
 
         private void IsWindowsAuthenticationCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             if (isWindowsAuthenticationCheckbox.Checked)
             {
-                // Disable loginTextbox and passwordTextbox when checkbox is checked
                 loginTextbox.Enabled = false;
                 passwordTextbox.Enabled = false;
             }
             else
             {
-                // Enable loginTextbox and passwordTextbox when checkbox is unchecked
                 loginTextbox.Enabled = true;
                 passwordTextbox.Enabled = true;
             }
@@ -95,6 +92,19 @@ namespace WMS___Projekt.Forms
         private void LoginForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void OnFormClose(object sender, FormClosedEventArgs e)
+        {
+            FormManager.CloseAllForms();
+            Console.WriteLine("onFormCLose in LoginForm.cs");
+            this.Close();
+        }
+        private void OnFormHide(object sender, FormClosedEventArgs e)
+        {
+            FormManager.CloseAllForms();
+            Console.WriteLine("onFormHide in LoginForm.cs");
+            this.Close();
         }
     }
 }

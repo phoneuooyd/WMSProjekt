@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WMS___Projekt.DataAccess;
 using WMS___Projekt.Models;
 
 
@@ -14,9 +16,11 @@ namespace WMS___Projekt.Forms
 {
     public partial class Form1 : Form
     {
+        DataQueryService dataQueryService = new DataQueryService();
         public Form1()
         {
             InitializeComponent();
+
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -32,7 +36,11 @@ namespace WMS___Projekt.Forms
             decimal carPrice = decimal.Parse(priceTextbox.Text);
             string color = colorTextbox.Text;
 
-            MainForm.cars.Add(new Car(MainForm.cars.Count + 1, carManufacturer, carModel, carProductionYear, carPrice,  color));
+            DataCreationService.CreateData(carModel, carManufacturer, carProductionYear, carPrice, color);
+
+            MainForm mainForm = Application.OpenForms.OfType<MainForm>().FirstOrDefault();
+            mainForm?.loadDatagrid_Click(sender, e);
+
             this.Close();
         }
 

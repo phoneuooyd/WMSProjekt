@@ -4,34 +4,69 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using WMS___Projekt.Forms;
 
 namespace WMS___Projekt.DataAccess
 {
     internal class DataCreationService
     {
-        public static void CreateData(string carModel, string carManufacturer, int carProductionYear, decimal carPrice,string color, SqlConnection connection)
+        public static void CreateData(string carModel, string carManufacturer, int carProductionYear, decimal carPrice,string color)
         {
-            string createTableQuery = @$"INSERT INTO Cars (Model, Manufacturer, Year, Price) 
-                                         VALUES ('{carModel}', '{carManufacturer}', {carProductionYear}, {carPrice}, {color});";
-            SqlCommand createTableCommand = new SqlCommand(createTableQuery, connection);
-            createTableCommand.ExecuteNonQuery();
-            Console.WriteLine($"The {carManufacturer} {carModel} created successfully.");
+            string dbName = DatabaseInitializer.ReturnCurrentDatabaseName();
+            string createTableQuery = @$"INSERT INTO {dbName}.dbo.Cars (Model, Manufacturer, Year, Price, Color) 
+                                        VALUES ('{carModel}', '{carManufacturer}', {carProductionYear}, {carPrice}, '{color}');";
+            string connectionString = DatabaseInitializer.currentConnectionString;
+            Console.WriteLine(connectionString);
+            SqlConnection connection = new SqlConnection(connectionString);
+            Console.WriteLine(connection);
+            using (connection)
+            {
+               try
+               {
+                   connection.Open();
+                   SqlCommand createTableCommand = new SqlCommand(createTableQuery, connection);
+                   createTableCommand.ExecuteNonQuery();
+                   Console.WriteLine("Object created successfully");
+               }
+               catch (Exception ex)
+               {
+                   Console.WriteLine($"Error creating object: {ex.Message}");
+                   Console.WriteLine(ex.InnerException);
+               }
+               finally
+               {
+                   connection.Close();
+               } 
+            }
+            
         }
 
-        public static void DeleteData(int carId, SqlConnection connection)
+        public static void DeleteData(int carId)
         {
-            string createTableQuery = @$"DELETE FROM Cars WHERE CarId = {carId};";
-            SqlCommand createTableCommand = new SqlCommand(createTableQuery, connection);
-            createTableCommand.ExecuteNonQuery();
-            Console.WriteLine($"Object deleted successfully.");
-        }
-
-        public static void UpdateData(int carId, string carModel, string carManufacturer, int carProductionYear, decimal carPrice, string color, SqlConnection connection)
-        {
-            string createTableQuery = @$"UPDATE Cars SET Model = '{carModel}', Manufacturer = '{carManufacturer}', Year = {carProductionYear}, Price = {carPrice}, Color = {color} WHERE CarId = {carId};";
-            SqlCommand createTableCommand = new SqlCommand(createTableQuery, connection);
-            createTableCommand.ExecuteNonQuery();
-            Console.WriteLine("Object modified successfully");
+            string dbName = DatabaseInitializer.ReturnCurrentDatabaseName();
+            SqlConnection connection = new SqlConnection(DatabaseInitializer.currentConnectionString);
+            string createTableQuery = @$"DELETE FROM {dbName}.dbo.Cars WHERE CarId = {carId};";
+            
+            using (connection)
+            { 
+                try
+                {
+                connection.Open();
+                SqlCommand createTableCommand = new SqlCommand(createTableQuery, connection);
+                createTableCommand.ExecuteNonQuery();
+                Console.WriteLine($"Object deleted successfully.");
+                }
+                catch (Exception ex)
+            {
+                Console.WriteLine($"Error deleting object: {ex.Message}");
+                Console.WriteLine(ex.InnerException);
+            }
+                finally
+                {
+                    connection.Close();
+                }
+            } 
         }
     }
 }

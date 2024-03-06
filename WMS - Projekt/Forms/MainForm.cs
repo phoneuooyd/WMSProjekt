@@ -16,39 +16,23 @@ namespace WMS___Projekt.Forms
 {
     public partial class MainForm : Form
     {
-        public static BindingList<Car> cars;
-
+        public DataTable dataTable;
         public MainForm()
         {
             InitializeComponent();
-            cars = new BindingList<Car>(GetDummyDataForCars());
-            dataGridView1.DataSource = cars;
-        }
-
-        private BindingList<Car>? GetDummyDataForCars()
-        {
-            BindingList<Car> returVal = new BindingList<Car>();
-            returVal.Add(new Car(1, "Mercedes", "SLK", 2007, 200000, "Blue"));
-            returVal.Add(new Car(2, "Mercedes", "C63", 2015, 250000, "Red"));
-            returVal.Add(new Car(3, "BMW", "M3", 2018, 300000, "White"));
-            returVal.Add(new Car(4, "BMW", "M5", 2019, 350000, "Green"));
-
-            return returVal;
+            dataTable = new DataTable();
+            dataGridView1.DataSource = dataTable;
         }
         private string GetSelectedRow()
         {
             if (dataGridView1.SelectedCells.Count > 0)
             {
-                // Get the index of the selected row
                 int rowIndex = dataGridView1.SelectedCells[0].RowIndex;
 
-                // Access the cell in the CarId column for the selected row
                 DataGridViewCell carIdCell = dataGridView1.Rows[rowIndex].Cells["CarId"];
 
-                // Check if the cell value is not null
                 if (carIdCell.Value != null)
                 {
-                    // Get the value of the CarId cell
                     string carId = carIdCell.Value.ToString();
                     return carId;
                 }
@@ -62,9 +46,10 @@ namespace WMS___Projekt.Forms
 
         }
 
-        private void loadDatagrid_Click(object sender, EventArgs e)
+        public void loadDatagrid_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = cars;
+            dataTable = new DataQueryService().GetAllData();
+            dataGridView1.DataSource = dataTable;
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -74,7 +59,7 @@ namespace WMS___Projekt.Forms
         private void addButton_Click(object sender, EventArgs e)
         {
             FormManager.ShowForm(new Form1());
-            dataGridView1.DataSource = cars;
+            dataGridView1.DataSource = dataTable;
         }
         private void deleteButton_Click(object sender, EventArgs e)
         {
@@ -83,18 +68,8 @@ namespace WMS___Projekt.Forms
             {
                 if (int.TryParse(carId, out int id))
                 {
-                    Car carToRemove = cars.FirstOrDefault(x => x.CarId == id);
-                    if (carToRemove != null)
-                    {
-                        cars.Remove(carToRemove);
-                        // Refresh the DataGridView to reflect the changes
-                        dataGridView1.DataSource = null;
-                        dataGridView1.DataSource = cars;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Car with ID " + carId + " not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                   DataCreationService.DeleteData(id);
+                    loadDatagrid_Click(sender, e);
                 }
                 else
                 {
@@ -112,6 +87,13 @@ namespace WMS___Projekt.Forms
         {
             FormManager.ShowForm(new LoginForm());
             this.Close();
+        }
+
+        private void OnFormClose(object sender, FormClosedEventArgs e)
+        {
+            FormManager.CloseAllForms();
+            this.Close();
+
         }
     }
 }

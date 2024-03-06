@@ -16,33 +16,75 @@ namespace WMS___Projekt.DataAccess
 {
     public class DatabaseInitializer
     {
-        public static string? CurrentDatabaseName;
-        public static string? CurrentConnectionString;
+        public static string currentDatabaseName;
+        public static string currentServerName;
+        public static string currentConnectionString;
+        public static bool isWindowsAuth;
+        public static string currentLogin;    
+        public static string currentPassword;
+        
         public static string ReturnCurrentDatabaseName()
         {
-            return CurrentDatabaseName;
+            return currentDatabaseName;
         }
         public static string ReturnConnectionString()
         {
-            return CurrentConnectionString;
+            return currentConnectionString;
+        }
+        public static string ReturnServerName()
+        {
+            return currentServerName;
+        }
+        public static bool ReturnIsWindowsAuth()
+        {
+            return isWindowsAuth;
+        }
+        public static string ReturnLogin()
+        {
+            return currentLogin;
+        }
+        public static string ReturnPassword()
+        {
+            return currentPassword;
+        }
+        public static string CreateConnectionString()
+        {
+            string dbName = ReturnCurrentDatabaseName();
+            string serverName = ReturnServerName();
+            bool isWindowsAuth = ReturnIsWindowsAuth();
+            string login = ReturnLogin();
+            string password = ReturnPassword();
+            
+            if (isWindowsAuth)
+            {
+                return $"Data Source={serverName};Initial Catalog={dbName};Integrated Security=True";
+            }
+            else
+            {
+                return $"Data Source={serverName};Initial Catalog={dbName};User ID={login};Password={password}";
+            }
         }
         public static bool InitializeDatabase(string serverName, string databaseName, string login, string password, bool isWindowsAuthentication)
         {
             string createDatabaseQuery = $"CREATE DATABASE {databaseName}";
             string connectionString = string.Empty;
-            CurrentDatabaseName = databaseName;
+            currentDatabaseName = databaseName;
+            currentServerName = serverName;
             
             SqlConnection connection = new SqlConnection();
 
             if (isWindowsAuthentication)
             {
                 connectionString = "Data Source=" + serverName + ";Initial Catalog=master;Integrated Security=True";
-                CurrentConnectionString = connectionString;
+                currentConnectionString = connectionString;
+                
             }
             else
             {
                 connectionString = "Data Source=" + serverName + ";Initial Catalog=master;User ID=" + login + ";Password=" + password;
-                CurrentConnectionString = connectionString;
+                currentConnectionString = connectionString;
+                currentLogin = login;
+                currentPassword = password;
             }
             using (connection)
             {
@@ -62,14 +104,15 @@ namespace WMS___Projekt.DataAccess
                                         Model NVARCHAR(100),
                                         Manufacturer NVARCHAR(100),
                                         Year INT,
-                                        Price DECIMAL(18, 2)
+                                        Price DECIMAL(18, 2),
+                                        Color NVARCHAR(100)
                                         )";
 
                     SqlCommand createTableCommand = new SqlCommand(createTableQuery, connection);
                     createTableCommand.ExecuteNonQuery();
 
                     Console.WriteLine("Table 'Cars' created successfully.");
-                    MessageBox.Show("Table 'StoredCars' created successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Table 'Cars' created successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     
                     return true;
                 }
@@ -87,7 +130,7 @@ namespace WMS___Projekt.DataAccess
         {
             SqlConnection connection = new SqlConnection();
             string connectionString = string.Empty;
-            CurrentDatabaseName = databaseName;
+            currentDatabaseName = databaseName;
             try
             {
                 if (isWindowsAuthentication)
@@ -95,7 +138,8 @@ namespace WMS___Projekt.DataAccess
                     connectionString = $"Data Source={serverName};Initial Catalog={databaseName};Integrated Security=True";
                     connection.ConnectionString = connectionString;
                     connection.Open();
-                    CurrentConnectionString = connectionString;
+                    currentConnectionString = connectionString;
+                    isWindowsAuth = true;
                     MessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     return true;
@@ -105,7 +149,9 @@ namespace WMS___Projekt.DataAccess
                     connectionString = $"Data Source={serverName};Initial Catalog={databaseName};User ID={login};Password={password}";
                     connection.ConnectionString = connectionString;
                     connection.Open();
-                    CurrentConnectionString = connectionString;
+                    currentConnectionString = connectionString;
+                    currentLogin = login;
+                    currentPassword = password;
                     MessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     return true;
