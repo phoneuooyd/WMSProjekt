@@ -11,18 +11,19 @@ namespace WMS___Projekt
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-
             // Subscribe to the FormChanged event
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
             // Create an instance of the initial form
             LoginForm loginForm = new LoginForm();
+            FormManager.ShowForm(loginForm);
 
-            // Run the application loop
-            Application.Run(loginForm);
+            while(Application.OpenForms.Count > 0)
+            {
+                Application.Run();
+            }
+            Application.Exit();
         }
     }
 }

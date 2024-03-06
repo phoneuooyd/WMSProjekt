@@ -5,22 +5,23 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace WMS___Projekt.DataAccess
 {
     internal class DataQueryService
     {
         private SqlConnection connection;
-        private DataTable dataTable;
-        public DataTable GetAllData(SqlConnection connection, DataTable dataTable)
+        public DataTable GetAllData()
         {
-            this.connection = connection;
-            this.dataTable = dataTable;
-
+            string connectionString = DatabaseInitializer.ReturnConnectionString();
+            string dbName = DatabaseInitializer.ReturnCurrentDatabaseName();
+            SqlConnection connection = new SqlConnection(connectionString);
+            DataTable dataTable = new DataTable();
             try
             {
-                connection.Open(); // Open the connection
-                string query = $"SELECT * FROM Car"; // Replace TableName with your table name
+                connection.Open(); 
+                string query = $"SELECT * FROM {dbName}.dbo.Cars"; 
                 SqlCommand command = new SqlCommand(query, connection);
                 SqlDataReader reader = command.ExecuteReader();
                 dataTable.Load(reader);
@@ -31,13 +32,12 @@ namespace WMS___Projekt.DataAccess
             {
                 Console.WriteLine($"Error retrieving data: {ex.Message}");
                 Console.WriteLine(ex.InnerException);
-                // Handle the exception as needed
             }
             finally
             {
                 if (connection.State == ConnectionState.Open)
                 {
-                    connection.Close(); // Close the connection if it's open
+                    connection.Close();
                 }
             }
 
