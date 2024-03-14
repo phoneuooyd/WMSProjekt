@@ -39,3 +39,7 @@ WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.sourcelink.json
 *.bin
 *.bin
 *.bin
+/.vs/WMS - Projekt/v17
+/.vs/WMS - Projekt
+/.vs
+.vs/WMS - Projekt/v17/.suo
