@@ -14,10 +14,10 @@ using WMS___Projekt.Models;
 
 namespace WMS___Projekt.Forms
 {
-    public partial class Form1 : Form
+    public partial class AddElementForm : Form
     {
         DataQueryService dataQueryService = new DataQueryService();
-        public Form1()
+        public AddElementForm()
         {
             InitializeComponent();
 

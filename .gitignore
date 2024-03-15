@@ -51,3 +51,12 @@ WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.sourcelink.json
 /WMS - Projekt/obj
 /.vs
 /WMS - Projekt/obj
+*.csproj
+/WMSProjekt_Tests/obj
+/WMS - Projekt/obj
+*.editorconfig
+*.cache
+WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.assets.cache
+WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.AssemblyInfoInputs.cache
+WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.AssemblyInfo.cs
+/WMS - Projekt/obj

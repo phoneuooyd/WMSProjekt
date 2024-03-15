@@ -58,7 +58,7 @@ namespace WMS___Projekt.Forms
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            FormManager.ShowForm(new Form1());
+            FormManager.ShowForm(new AddElementForm());
             dataGridView1.DataSource = dataTable;
         }
         private void deleteButton_Click(object sender, EventArgs e)

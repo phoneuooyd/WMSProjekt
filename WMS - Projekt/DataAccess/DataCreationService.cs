@@ -9,7 +9,7 @@ using WMS___Projekt.Forms;
 
 namespace WMS___Projekt.DataAccess
 {
-    internal class DataCreationService
+    public class DataCreationService
     {
         public static void CreateData(string carModel, string carManufacturer, int carProductionYear, decimal carPrice,string color)
         {

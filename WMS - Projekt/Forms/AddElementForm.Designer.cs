@@ -1,6 +1,6 @@
 ﻿namespace WMS___Projekt.Forms
 {
-    partial class Form1
+    partial class AddElementForm
     {
         /// <summary>
         /// Required designer variable.
