@@ -34,6 +34,7 @@ namespace WMS___Projekt.Forms
             {
                 MessageBox.Show("Database created successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
+                FormManager.ShowForm(new LoginForm());
             }
             else
             {
