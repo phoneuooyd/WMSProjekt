@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WMS___Projekt.DataAccess;
+using WMS___Projekt.DataAccess.Repositories;
 using WMS___Projekt.Models;
 using WMS___Projekt.Utillities;
 
@@ -17,6 +17,7 @@ namespace WMS___Projekt.Forms
     public partial class MainForm : Form
     {
         public DataTable dataTable;
+        private readonly ICarRepository _repository = new CarRepository();
         public MainForm()
         {
             InitializeComponent();
@@ -48,7 +49,7 @@ namespace WMS___Projekt.Forms
 
         public void loadDatagrid_Click(object sender, EventArgs e)
         {
-            dataTable = new DataQueryService().GetAllData();
+            dataTable = _repository.GetAll();
             dataGridView1.DataSource = dataTable;
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -68,7 +69,7 @@ namespace WMS___Projekt.Forms
             {
                 if (int.TryParse(carId, out int id))
                 {
-                   DataCreationService.DeleteData(id);
+                    _repository.Delete(id);
                     loadDatagrid_Click(sender, e);
                 }
                 else
