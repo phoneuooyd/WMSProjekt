@@ -43,6 +43,7 @@
             // 
             // serverNameComboBox
             //
+            serverNameComboBox.DropDownStyle = ComboBoxStyle.DropDown;
             serverNameComboBox.FormattingEnabled = true;
             serverNameComboBox.Location = new Point(202, 41);
             serverNameComboBox.Name = "serverNameComboBox";
@@ -111,6 +112,7 @@
             serverPasswordTextbox.Name = "serverPasswordTextbox";
             serverPasswordTextbox.Size = new Size(251, 23);
             serverPasswordTextbox.TabIndex = 7;
+            serverPasswordTextbox.UseSystemPasswordChar = true;
             // 
             // serverLoginLabel
             // 

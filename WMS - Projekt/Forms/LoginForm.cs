@@ -11,18 +11,6 @@ namespace WMS___Projekt.Forms
     public partial class LoginForm : Form
     {
         private SqlConnection connection;
-        private Label label1;
-        private Label label2;
-        private Button loginButton;
-        private Button cancelButton;
-        private TextBox loginTextbox;
-        private CheckBox isWindowsAuthenticationCheckbox;
-        private Label serverNameLabel;
-        private ComboBox serverNameComboBox;
-        private Label databaseNameLabel;
-        private TextBox databaseNameTextbox;
-        private TextBox passwordTextbox;
-        private Label newDatabaseLabel;
 
         public LoginForm()
         {

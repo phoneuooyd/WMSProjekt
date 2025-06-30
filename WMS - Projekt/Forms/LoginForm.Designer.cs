@@ -1,5 +1,4 @@
-﻿
-namespace WMS___Projekt.Forms
+﻿namespace WMS___Projekt.Forms
 {
     partial class LoginForm
     {
@@ -120,6 +119,7 @@ namespace WMS___Projekt.Forms
             // 
             // serverNameComboBox
             //
+            serverNameComboBox.DropDownStyle = ComboBoxStyle.DropDown;
             serverNameComboBox.FormattingEnabled = true;
             serverNameComboBox.Location = new Point(190, 38);
             serverNameComboBox.Name = "serverNameComboBox";
@@ -188,8 +188,18 @@ namespace WMS___Projekt.Forms
 
         #endregion
 
-
-        private Button createNewDatabaseButton;
+        private Label label1;
+        private Label label2;
+        private Button loginButton;
+        private Button cancelButton;
+        private TextBox loginTextbox;
+        private CheckBox isWindowsAuthenticationCheckbox;
+        private Label serverNameLabel;
         private ComboBox serverNameComboBox;
+        private Label databaseNameLabel;
+        private TextBox databaseNameTextbox;
+        private TextBox passwordTextbox;
+        private Label newDatabaseLabel;
+        private Button createNewDatabaseButton;
     }
 }
