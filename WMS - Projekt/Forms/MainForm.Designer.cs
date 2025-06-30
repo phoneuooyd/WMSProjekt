@@ -39,6 +39,7 @@ namespace WMS___Projekt.Forms
             panel2 = new Panel();
             addButton = new Button();
             delButton = new Button();
+            editButton = new Button();
             panel1.SuspendLayout();
             panelDatagrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -107,6 +108,7 @@ namespace WMS___Projekt.Forms
             // 
             panel2.Controls.Add(addButton);
             panel2.Controls.Add(delButton);
+            panel2.Controls.Add(editButton);
             panel2.Location = new Point(153, 0);
             panel2.Name = "panel2";
             panel2.Size = new Size(636, 84);
@@ -131,7 +133,17 @@ namespace WMS___Projekt.Forms
             delButton.Text = "Delete";
             delButton.UseVisualStyleBackColor = true;
             delButton.Click += deleteButton_Click;
-            // 
+            //
+            // editButton
+            //
+            editButton.Location = new Point(212, 12);
+            editButton.Name = "editButton";
+            editButton.Size = new Size(94, 55);
+            editButton.TabIndex = 3;
+            editButton.Text = "Edit";
+            editButton.UseVisualStyleBackColor = true;
+            editButton.Click += editButton_Click;
+            //
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -161,5 +173,6 @@ namespace WMS___Projekt.Forms
         private Panel panel2;
         private Button addButton;
         private Button delButton;
+        private Button editButton;
     }
 }

@@ -1,66 +1,17 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
 
-*.vsidx
-*.vsidx
-*.vsidx
-.vs/WMS - Projekt/FileContentIndex/7d3c40a8-4c24-4865-ab43-8f7da19d7c05.vsidx
-.vs/WMS - Projekt/FileContentIndex/7d3c40a8-4c24-4865-ab43-8f7da19d7c05.vsidx
-.vs/WMS - Projekt/v17/.suo
-WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.pdb
-WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.sourcelink.json
-WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.genruntimeconfig.cache
-*.cache
-WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.csproj.FileListAbsolute.txt
-*.cache
+# Build outputs
+bin/
+obj/
+
+# Other generated files
 *.vsidx
 *.v2
-*.bin
-*.json
-*.pdb
-*.dll
-*.exe
-*.json
-.vs/WMS - Projekt/v17/.suo
 *.cache
-*.cache
-*.dll
-*.pdb
-*.json
-WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.AssemblyInfo.cs
-WMS - Projekt/obj/Debug/net8.0-windows/apphost.exe
-WMS - Projekt/obj/Debug/net8.0-windows/ref/WMS - Projekt.dll
-WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.AssemblyInfo.cs
-WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.AssemblyInfoInputs.cache
-WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.csproj.GenerateResource.cache
-WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.sourcelink.json
-*.cache
-*.v2
-*.v2
-*.bin
-*.bin
-*.bin
-*.bin
-/.vs/WMS - Projekt/v17
-/.vs/WMS - Projekt
-/.vs
-.vs/WMS - Projekt/v17/.suo
-/WMS - Projekt/obj
-/WMS - Projekt/obj
-/WMS - Projekt/obj
-/TestProject1/obj
-/WMS - Projekt/obj
-/WMS - Projekt/obj
-/.vs
-/WMS - Projekt/obj
-*.csproj
-/WMSProjekt_Tests/obj
-/WMS - Projekt/obj
-*.editorconfig
-*.cache
-WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.assets.cache
-WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.AssemblyInfoInputs.cache
-WMS - Projekt/obj/Debug/net8.0-windows/WMS - Projekt.AssemblyInfo.cs
-/WMS - Projekt/obj
-/WMS - Projekt/.vs
-/WMS - Projekt/bin
-/WMS - Projekt/obj
-/WMS - Projekt/obj
+
+# Logs and local databases
+*.log
+*.db

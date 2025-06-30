@@ -62,6 +62,31 @@ namespace WMS___Projekt.Forms
             FormManager.ShowForm(new AddElementForm());
             dataGridView1.DataSource = dataTable;
         }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            string carId = GetSelectedRow();
+            if (!string.IsNullOrEmpty(carId) && int.TryParse(carId, out int id))
+            {
+                DataRow row = dataTable.Rows
+                    .Cast<DataRow>()
+                    .FirstOrDefault(r => r.Field<int>("CarId") == id);
+                if (row != null)
+                {
+                    var car = new Car
+                    {
+                        CarId = id,
+                        Manufacturer = row.Field<string>("Manufacturer"),
+                        Model = row.Field<string>("Model"),
+                        Year = row.Field<int>("Year"),
+                        Price = row.Field<decimal>("Price"),
+                        Color = row.Field<string>("Color")
+                    };
+
+                    FormManager.ShowForm(new AddElementForm(car));
+                }
+            }
+        }
         private void deleteButton_Click(object sender, EventArgs e)
         {
             string carId = GetSelectedRow();

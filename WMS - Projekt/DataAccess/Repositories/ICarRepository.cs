@@ -6,6 +6,7 @@ namespace WMS___Projekt.DataAccess.Repositories
     public interface ICarRepository
     {
         void Add(Car car);
+        void Update(Car car);
         void Delete(int carId);
         DataTable GetAll();
     }
