@@ -33,10 +33,31 @@ namespace WMS___Projekt.DataAccess.Repositories
             return command;
         }
 
+        internal SqlCommand BuildUpdateCommand(SqlConnection connection, Car car)
+        {
+            var query = @$"UPDATE {_dbName}.dbo.Cars SET Model=@Model, Manufacturer=@Manufacturer, Year=@Year, Price=@Price, Color=@Color WHERE CarId=@CarId";
+            var command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@Model", car.Model ?? string.Empty);
+            command.Parameters.AddWithValue("@Manufacturer", car.Manufacturer ?? string.Empty);
+            command.Parameters.AddWithValue("@Year", car.Year);
+            command.Parameters.AddWithValue("@Price", car.Price);
+            command.Parameters.AddWithValue("@Color", car.Color ?? string.Empty);
+            command.Parameters.AddWithValue("@CarId", car.CarId);
+            return command;
+        }
+
         public void Add(Car car)
         {
             using var connection = new SqlConnection(_connectionString);
             using var command = BuildInsertCommand(connection, car);
+            connection.Open();
+            command.ExecuteNonQuery();
+        }
+
+        public void Update(Car car)
+        {
+            using var connection = new SqlConnection(_connectionString);
+            using var command = BuildUpdateCommand(connection, car);
             connection.Open();
             command.ExecuteNonQuery();
         }

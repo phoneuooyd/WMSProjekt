@@ -17,11 +17,28 @@ namespace WMS___Projekt.Forms
     public partial class AddElementForm : Form
     {
         private readonly ICarRepository _repository = new CarRepository();
+        private bool _isEdit = false;
+        private int _carId;
 
         public AddElementForm()
         {
             InitializeComponent();
 
+        }
+
+        public AddElementForm(Car car) : this()
+        {
+            if (car != null)
+            {
+                _isEdit = true;
+                _carId = car.CarId;
+                makeTextbox.Text = car.Manufacturer;
+                modelTextbox.Text = car.Model;
+                yearTextbox.Text = car.Year.ToString();
+                priceTextbox.Text = car.Price.ToString();
+                colorTextbox.Text = car.Color;
+                confirmButton.Text = "Update";
+            }
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -39,6 +56,7 @@ namespace WMS___Projekt.Forms
 
             var car = new Car
             {
+                CarId = _carId,
                 Manufacturer = carManufacturer,
                 Model = carModel,
                 Year = carProductionYear,
@@ -46,7 +64,14 @@ namespace WMS___Projekt.Forms
                 Color = color
             };
 
-            _repository.Add(car);
+            if (_isEdit)
+            {
+                _repository.Update(car);
+            }
+            else
+            {
+                _repository.Add(car);
+            }
 
             MainForm mainForm = Application.OpenForms.OfType<MainForm>().FirstOrDefault();
             mainForm?.loadDatagrid_Click(sender, e);
