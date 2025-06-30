@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WMS___Projekt.DataAccess;
+using WMS___Projekt.DataAccess.Repositories;
 using WMS___Projekt.Models;
 
 
@@ -16,7 +16,8 @@ namespace WMS___Projekt.Forms
 {
     public partial class AddElementForm : Form
     {
-        DataQueryService dataQueryService = new DataQueryService();
+        private readonly ICarRepository _repository = new CarRepository();
+
         public AddElementForm()
         {
             InitializeComponent();
@@ -36,7 +37,16 @@ namespace WMS___Projekt.Forms
             decimal carPrice = decimal.Parse(priceTextbox.Text);
             string color = colorTextbox.Text;
 
-            DataCreationService.CreateData(carModel, carManufacturer, carProductionYear, carPrice, color);
+            var car = new Car
+            {
+                Manufacturer = carManufacturer,
+                Model = carModel,
+                Year = carProductionYear,
+                Price = carPrice,
+                Color = color
+            };
+
+            _repository.Add(car);
 
             MainForm mainForm = Application.OpenForms.OfType<MainForm>().FirstOrDefault();
             mainForm?.loadDatagrid_Click(sender, e);

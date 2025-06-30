@@ -15,6 +15,10 @@ namespace WMS___Projekt.Models
         public decimal Price { get; set; } = 0;
         public string? Color { get; set; }   = string.Empty;
 
+        public Car()
+        {
+        }
+
         public Car(int carId,string manufacturer, string model, int year, decimal price, string color)
         {
             CarId = carId;
