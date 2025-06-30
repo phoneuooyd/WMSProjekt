@@ -24,7 +24,7 @@ namespace WMS___Projekt.Forms
         }
         private void CreateButton_Click(object sender, EventArgs e)
         {
-            string serverName = serverNameTextBox.Text;
+            string serverName = serverNameComboBox.Text;
             string databaseName = newDatabaseTextbox.Text;
             string login = serverLoginTextbox.Text;
             string password = serverPasswordTextbox.Text;
@@ -72,6 +72,18 @@ namespace WMS___Projekt.Forms
         private void cancelButton_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void serverNameComboBox_DropDown(object sender, EventArgs e)
+        {
+            if (serverNameComboBox.Items.Count == 0)
+            {
+                var servers = SqlServerSearch.GetAvailableServers();
+                foreach (var s in servers)
+                {
+                    serverNameComboBox.Items.Add(s);
+                }
+            }
         }
     }
 }

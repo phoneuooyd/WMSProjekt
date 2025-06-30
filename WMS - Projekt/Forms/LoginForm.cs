@@ -11,18 +11,6 @@ namespace WMS___Projekt.Forms
     public partial class LoginForm : Form
     {
         private SqlConnection connection;
-        private Label label1;
-        private Label label2;
-        private Button loginButton;
-        private Button cancelButton;
-        private TextBox loginTextbox;
-        private CheckBox isWindowsAuthenticationCheckbox;
-        private Label serverNameLabel;
-        private TextBox serverNameTextbox;
-        private Label databaseNameLabel;
-        private TextBox databaseNameTextbox;
-        private TextBox passwordTextbox;
-        private Label newDatabaseLabel;
 
         public LoginForm()
         {
@@ -46,7 +34,7 @@ namespace WMS___Projekt.Forms
         {
             string login = loginTextbox.Text;
             string password = passwordTextbox.Text;
-            string serverName = serverNameTextbox.Text;
+            string serverName = serverNameComboBox.Text;
             string databaseName = databaseNameTextbox.Text;
             bool isWindowsAuthentication = isWindowsAuthenticationCheckbox.Checked;
 
@@ -80,6 +68,18 @@ namespace WMS___Projekt.Forms
         private void TextBox2_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void serverNameComboBox_DropDown(object sender, EventArgs e)
+        {
+            if (serverNameComboBox.Items.Count == 0)
+            {
+                var servers = SqlServerSearch.GetAvailableServers();
+                foreach (var s in servers)
+                {
+                    serverNameComboBox.Items.Add(s);
+                }
+            }
         }
 
         private void Label2_Click(object sender, EventArgs e)

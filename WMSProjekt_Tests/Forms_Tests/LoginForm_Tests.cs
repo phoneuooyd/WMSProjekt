@@ -21,7 +21,7 @@ namespace WMS___Projekt.Tests
             bool isWindowsAuth = false;
 
             // Access private fields using reflection
-            PropertyInfo serverNameTextboxProperty = loginForm.GetType().GetProperty("serverNameTextbox", BindingFlags.NonPublic | BindingFlags.Instance);
+            PropertyInfo serverNameComboBoxProperty = loginForm.GetType().GetProperty("serverNameComboBox", BindingFlags.NonPublic | BindingFlags.Instance);
             PropertyInfo databaseNameTextboxProperty = loginForm.GetType().GetProperty("databaseNameTextbox", BindingFlags.NonPublic | BindingFlags.Instance);
             PropertyInfo loginTextboxProperty = loginForm.GetType().GetProperty("loginTextbox", BindingFlags.NonPublic | BindingFlags.Instance);
             PropertyInfo passwordTextboxProperty = loginForm.GetType().GetProperty("passwordTextbox", BindingFlags.NonPublic | BindingFlags.Instance);
@@ -29,7 +29,7 @@ namespace WMS___Projekt.Tests
             MethodInfo loginButtonClickMethod = loginForm.GetType().GetMethod("loginButton_Click", BindingFlags.NonPublic | BindingFlags.Instance);
 
             // Set private fields
-            ((TextBox)serverNameTextboxProperty.GetValue(loginForm)).Text = validServerName;
+            ((ComboBox)serverNameComboBoxProperty.GetValue(loginForm)).Text = validServerName;
             ((TextBox)databaseNameTextboxProperty.GetValue(loginForm)).Text = validDatabaseName;
             ((TextBox)loginTextboxProperty.GetValue(loginForm)).Text = validLogin;
             ((TextBox)passwordTextboxProperty.GetValue(loginForm)).Text = validPassword;

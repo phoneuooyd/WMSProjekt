@@ -1,5 +1,4 @@
-﻿
-namespace WMS___Projekt.Forms
+﻿namespace WMS___Projekt.Forms
 {
     partial class LoginForm
     {
@@ -37,7 +36,7 @@ namespace WMS___Projekt.Forms
             passwordTextbox = new TextBox();
             isWindowsAuthenticationCheckbox = new CheckBox();
             serverNameLabel = new Label();
-            serverNameTextbox = new TextBox();
+            serverNameComboBox = new ComboBox();
             databaseNameLabel = new Label();
             databaseNameTextbox = new TextBox();
             newDatabaseLabel = new Label();
@@ -118,12 +117,15 @@ namespace WMS___Projekt.Forms
             serverNameLabel.TabIndex = 7;
             serverNameLabel.Text = "Server name";
             // 
-            // serverNameTextbox
-            // 
-            serverNameTextbox.Location = new Point(190, 38);
-            serverNameTextbox.Name = "serverNameTextbox";
-            serverNameTextbox.Size = new Size(248, 23);
-            serverNameTextbox.TabIndex = 8;
+            // serverNameComboBox
+            //
+            serverNameComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+            serverNameComboBox.FormattingEnabled = true;
+            serverNameComboBox.Location = new Point(190, 38);
+            serverNameComboBox.Name = "serverNameComboBox";
+            serverNameComboBox.Size = new Size(248, 23);
+            serverNameComboBox.TabIndex = 8;
+            serverNameComboBox.DropDown += serverNameComboBox_DropDown;
             // 
             // databaseNameLabel
             // 
@@ -168,7 +170,7 @@ namespace WMS___Projekt.Forms
             Controls.Add(newDatabaseLabel);
             Controls.Add(databaseNameTextbox);
             Controls.Add(databaseNameLabel);
-            Controls.Add(serverNameTextbox);
+            Controls.Add(serverNameComboBox);
             Controls.Add(serverNameLabel);
             Controls.Add(isWindowsAuthenticationCheckbox);
             Controls.Add(passwordTextbox);
@@ -186,7 +188,18 @@ namespace WMS___Projekt.Forms
 
         #endregion
 
-
+        private Label label1;
+        private Label label2;
+        private Button loginButton;
+        private Button cancelButton;
+        private TextBox loginTextbox;
+        private CheckBox isWindowsAuthenticationCheckbox;
+        private Label serverNameLabel;
+        private ComboBox serverNameComboBox;
+        private Label databaseNameLabel;
+        private TextBox databaseNameTextbox;
+        private TextBox passwordTextbox;
+        private Label newDatabaseLabel;
         private Button createNewDatabaseButton;
     }
 }

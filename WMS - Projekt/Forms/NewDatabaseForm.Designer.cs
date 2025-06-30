@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            serverNameTextBox = new TextBox();
+            serverNameComboBox = new ComboBox();
             newDatabaseTextbox = new TextBox();
             serverNameLabel = new Label();
             newDatabaseNameLabel = new Label();
@@ -41,13 +41,15 @@
             isWindowsAuthenticationCheckbox = new CheckBox();
             SuspendLayout();
             // 
-            // serverNameTextBox
-            // 
-            serverNameTextBox.Location = new Point(202, 41);
-            serverNameTextBox.Name = "serverNameTextBox";
-            serverNameTextBox.Size = new Size(251, 23);
-            serverNameTextBox.TabIndex = 0;
-            serverNameTextBox.TextChanged += ServerNameTextBox_TextChanged;
+            // serverNameComboBox
+            //
+            serverNameComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+            serverNameComboBox.FormattingEnabled = true;
+            serverNameComboBox.Location = new Point(202, 41);
+            serverNameComboBox.Name = "serverNameComboBox";
+            serverNameComboBox.Size = new Size(251, 23);
+            serverNameComboBox.TabIndex = 0;
+            serverNameComboBox.DropDown += serverNameComboBox_DropDown;
             // 
             // newDatabaseTextbox
             // 
@@ -110,6 +112,7 @@
             serverPasswordTextbox.Name = "serverPasswordTextbox";
             serverPasswordTextbox.Size = new Size(251, 23);
             serverPasswordTextbox.TabIndex = 7;
+            serverPasswordTextbox.UseSystemPasswordChar = true;
             // 
             // serverLoginLabel
             // 
@@ -139,6 +142,7 @@
             isWindowsAuthenticationCheckbox.TabIndex = 10;
             isWindowsAuthenticationCheckbox.Text = "Authenticate with Windows Login";
             isWindowsAuthenticationCheckbox.UseVisualStyleBackColor = true;
+            isWindowsAuthenticationCheckbox.CheckedChanged += isWindowsAuthenticationCheckbox_CheckedChanged;
             // 
             // NewDatabaseForm
             // 
@@ -155,7 +159,7 @@
             Controls.Add(newDatabaseNameLabel);
             Controls.Add(serverNameLabel);
             Controls.Add(newDatabaseTextbox);
-            Controls.Add(serverNameTextBox);
+            Controls.Add(serverNameComboBox);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "NewDatabaseForm";
             Text = "Create new database";
@@ -175,7 +179,7 @@
 
         #endregion
 
-        private TextBox serverNameTextBox;
+        private ComboBox serverNameComboBox;
         private TextBox newDatabaseTextbox;
         private Label serverNameLabel;
         private Label newDatabaseNameLabel;
